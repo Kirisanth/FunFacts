@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
+
 
 public class FunFactsActivity extends Activity {
 
@@ -23,7 +25,27 @@ public class FunFactsActivity extends Activity {
 
         View.OnClickListener listener = new View.OnClickListener(){
             public void onClick(View view){
-                String fact = "Ostriches can run faster than horses";
+//                String fact = "Ostriches can run faster than horses";
+                String fact = "";
+
+                //Random number generator
+                Random randomGenerator = new Random();
+                int randomNumber = randomGenerator.nextInt(3);
+                fact = randomNumber + "";
+
+                if(randomNumber == 0) {
+                    fact = "Ants stretch when they wake up in the morning.";
+                }
+                else if(randomNumber == 1) {
+                    fact = "Ostriches can run faster than horses.";
+                }
+                else if(randomNumber == 2) {
+                    fact = "Olympic gold metals are actually made mostly of silver.";
+                }
+                else {
+                    fact = "Sorry, there was an error!";
+                }
+
                 //This is a closure requires factLabel to be final
                 factLabel.setText(fact);
             }
